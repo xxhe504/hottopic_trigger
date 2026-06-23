@@ -43,3 +43,6 @@ if __name__ == '__main__':
 
 #!jupyter nbconvert --to python --no-prompt --TemplateExporter.exclude_input_prompt=True --TemplateExporter.exclude_output_prompt=True  trigger.ipynb
 
+
+
+
