@@ -13,7 +13,7 @@ def handler(event, context):
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
     USER_NAME = "xxhe504"
     REPO_NAME = "hottopic"
-    WORKFLOW_FILE = "run_wb_hottopic_r2.yaml"
+    WORKFLOW_FILE = "run_wb_hottopic.yaml"
     BRANCH = "main"
 
     print('开始调度GitHub Workflow')
