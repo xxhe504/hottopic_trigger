@@ -4,7 +4,6 @@ import os
 
 app = Flask(__name__)
 
-# 同时支持 GET 和 POST，浏览器访问也能触发
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/trigger', methods=['GET', 'POST'])
 def trigger():
@@ -22,9 +21,16 @@ def trigger():
     resp = requests.post(url, headers=headers, json={"ref": "main"})
 
     if resp.status_code == 204:
-        return {"status": 200, "msg": "触发 hottopic run_wb_hottopic.yaml GitHub Actions 成功！"}
+        # 极简返回，也可以直接 return "ok", 200
+        return {"ok": True, "msg": "trigger success"}
     else:
-        return {"status": resp.status_code, "msg": "触发 hottopic run_wb_hottopic.yaml GitHub Actions 失败", "error": resp.text}
+        # 只返回状态码，抛弃长error文本
+        return {
+            "ok": False,
+            "code": resp.status_code,
+            "msg": "github dispatch failed"
+        }
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+    
