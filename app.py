@@ -10,8 +10,7 @@ def trigger():
     token = os.environ.get("GITHUB_TOKEN")
     user = "xxhe504"
     repo = "hottopic"
-    workflow = "run_wb_hottopic.yaml"
-
+    workflow = "run_wb_hottopic_r2.yaml"
     url = f"https://api.github.com/repos/{user}/{repo}/actions/workflows/{workflow}/dispatches"
     headers = {
         "Authorization": f"token {token}",
